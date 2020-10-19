@@ -1,12 +1,15 @@
 library bloc;
 
+import 'dart:math';
 // import 'package:rxdart/rxdart.dart';
 
-// import 'package:pemilihan_app/locator.dart';
-// import 'package:pemilihan_app/service/service.dart';
-// import 'package:pemilihan_app/model/model.dart';
+import 'package:flutter/foundation.dart';
+import 'package:test_thumbrand/locator.dart';
+import 'package:test_thumbrand/model/model.dart';
+import 'package:test_thumbrand/service/service.dart';
 
 part 'first_bloc.dart';
+part 'second_bloc.dart';
 
 abstract class Bloc {
   void init();
