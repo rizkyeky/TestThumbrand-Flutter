@@ -7,6 +7,8 @@ class Quote {
 
   Quote(this.id, this.author, this.texts);
 
+  factory Quote.initial() => Quote(0, '', '');
+
   factory Quote.fromJson(int id, Map<String, dynamic> json) => Quote(
     id,
     json['quoteAuthor'] as String,
