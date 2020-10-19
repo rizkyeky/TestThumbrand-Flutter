@@ -6,6 +6,7 @@ class XTextField extends StatelessWidget {
   final TextEditingController controller;
   final bool obscureText;
   final Widget suffixIcon;
+  final Widget prefixIcon;
   final void Function(String) onChanged;
   final TextInputType keyboardType;
 
@@ -15,6 +16,7 @@ class XTextField extends StatelessWidget {
   this.controller,
   this.obscureText,
   this.suffixIcon,
+  this.prefixIcon,
   this.onChanged,
   this.keyboardType
   }) : super(key: key);
@@ -28,8 +30,9 @@ class XTextField extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         labelText: text,
-        labelStyle: blackContentRegular.copyWith(color: Theme.of(context).dividerColor),
+        labelStyle: blackSubtitle,
         suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(6),
           borderSide: const BorderSide(
