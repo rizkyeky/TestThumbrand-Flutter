@@ -15,20 +15,16 @@ class SecondPage extends Page<SecondBloc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: xwhiteColor,
       appBar: XTopBar(
         backgroundColor: Colors.transparent,
         textTitle: 'Search',
-        // leading: IconButton(
-        //   icon: const Icon(Icons.arrow_back, color: xblackColor), 
-        //   onPressed: () {}
-        // ),
         textStyle: blackTitle,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          textBaseline: TextBaseline.alphabetic,
           children: [
             Text('What would you like to search ?', 
               style: blackTitle.copyWith(fontSize: 30),
@@ -40,37 +36,66 @@ class SecondPage extends Page<SecondBloc> {
             ),
             const Divider(height: 32),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Stack(
-                  alignment: AlignmentDirectional.topCenter,
                   children: [
                     Card(
-                      child: Container(height: 200, margin: EdgeInsets.symmetric(horizontal: 30),),
-                    ),
-                    Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Material(
-                              clipBehavior: Clip.antiAlias,
-                              borderRadius: BorderRadius.all(Radius.circular(100)),
-                              elevation: 10,
-                              child: Container(height: 100, width: 100,),
-                            ),
-                            SizedBox(
-                              width: 150,
-                              child: Text('THUMBRAND SERVICE',
-                                textAlign: TextAlign.left,
-                                style: blackSubtitle.copyWith(fontWeight: FontWeight.bold)
+                      color: Colors.white,
+                      elevation: 1,
+                      margin: const EdgeInsets.fromLTRB(24, 24, 0, 0),
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints.expand(height: 250),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(6, 6, 6, 0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.baseline,
+                                children: [
+                                  const SizedBox(height: 120, width: 150,),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        height: 120,
+                                        width: 150,
+                                        child: Align(
+                                          child: Text('THUMBRAND SERVICE',
+                                            textAlign: TextAlign.left,
+                                            style: blackSubtitle.copyWith(fontWeight: FontWeight.bold)
+                                          ),
+                                        )
+                                      ),
+                                      // const SizedBox(height: 50,),
+                                      Text('\$300\n3 month\n100%', style: blackSubtitle),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              FlatButton(
+                                onPressed: () {},
+                                child: Text('See More', style: blackSubtitle,),
                               )
-                            ),
-                          ],
+                            ]
+                          ),
                         ),
-                        const SizedBox(height: 50,),
-                          Text('\$300\n3mo.\n100%',
-                            textAlign: TextAlign.left,
-                            style: blackSubtitle.copyWith(fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        const Material(
+                          color: Colors.white,
+                          clipBehavior: Clip.antiAlias,
+                          borderRadius: BorderRadius.all(Radius.circular(75)),
+                          elevation: 1,
+                          child: SizedBox(height: 150, width: 150,),
+                        ),
+                        
                       ],
                     )
                   ]
