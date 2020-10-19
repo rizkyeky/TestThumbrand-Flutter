@@ -26,6 +26,7 @@ class XTextField extends StatelessWidget {
     return Material(
       borderRadius: BorderRadius.circular(16),
       elevation: 1,
+      color: Colors.white,
       clipBehavior: Clip.antiAlias,
       child: TextField(
         keyboardType: keyboardType ?? TextInputType.text,
