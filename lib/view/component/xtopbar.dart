@@ -15,7 +15,7 @@ class XTopBar extends AppBar {
     backgroundColor: backgroundColor ?? xwhiteColor,
     centerTitle: true,
     elevation: 0,
-    title: Text(textTitle, style: textStyle ?? blueTitle,),
+    title: Text(textTitle, style: textStyle ?? blackSubtitle),
     leading: leading,
     bottom: isLoading ? XTopLinearProgressIndicator(stream: isLoadingStream,) : null
   );
