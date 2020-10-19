@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_thumbrand/theme.dart';
 import 'locator.dart';
 import 'router.dart';
 
@@ -15,10 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Test',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: xblackColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: '/second',
+      initialRoute: '/',
       onGenerateRoute:XRouter.generateRoute,
     );
   }
