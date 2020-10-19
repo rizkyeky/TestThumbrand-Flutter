@@ -10,6 +10,7 @@ GetIt locator = GetIt.instance;
 Future<void> setupLocator() async {
 
   locator.registerLazySingleton(() => QuoteService());
+  locator.registerLazySingleton(() => DummyService());
   // locator.registerLazySingleton(() => AuthService(), instanceName: 'Service Auth');
   
   locator.registerFactory(() => FirstBloc());
