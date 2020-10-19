@@ -15,6 +15,7 @@ Future<void> setupLocator() async {
   
   locator.registerFactory(() => FirstBloc());
   locator.registerFactory(() => SecondBloc());
+  locator.registerFactory(() => ThirdBloc());
   
   // locator.registerSingleton<Pemantau>(Pemantau.initial(), instanceName: 'Pemantau Active');
   // locator.registerSingleton<User>(User.initial(), instanceName: 'User Active');
