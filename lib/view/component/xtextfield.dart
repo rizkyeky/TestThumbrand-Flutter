@@ -23,28 +23,23 @@ class XTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      keyboardType: keyboardType ?? TextInputType.text,
-      onChanged: onChanged ?? (value) {},
-      obscureText: obscureText ?? false,
-      controller: controller,
-      decoration: InputDecoration(
-        labelText: text,
-        labelStyle: blackSubtitle,
-        suffixIcon: suffixIcon,
-        prefixIcon: prefixIcon,
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(6),
-          borderSide: const BorderSide(
-            color: xmainColor,
-            width: 3
-          )
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(6),
-          borderSide: const BorderSide(
-            color: xmainColor,
-            width: 3
+    return Material(
+      borderRadius: BorderRadius.circular(16),
+      elevation: 1,
+      clipBehavior: Clip.antiAlias,
+      child: TextField(
+        keyboardType: keyboardType ?? TextInputType.text,
+        onChanged: onChanged ?? (value) {},
+        obscureText: obscureText ?? false,
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: text,
+          labelStyle: blackSubtitle,
+          suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
+          // isDense: true,
+          border: const UnderlineInputBorder(
+            borderSide: BorderSide.none,
           )
         ),
       ),
