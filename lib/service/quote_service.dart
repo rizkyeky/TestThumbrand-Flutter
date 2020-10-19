@@ -14,7 +14,7 @@ class QuoteService {
   }
 
   Future<void> _parseJson() async {
-    final List<Map> json = jsonDecode(await _loadFromAsset()) as List<Map>;
+    final List json = jsonDecode(await _loadFromAsset()) as List;
     for (int i = 0; i < json.length; i++) {
       _quotes.add(Quote.fromJson(i, json[i] as Map<String, dynamic>));
     }
