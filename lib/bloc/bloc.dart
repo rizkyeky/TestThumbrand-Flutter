@@ -10,6 +10,7 @@ import 'package:test_thumbrand/service/service.dart';
 
 part 'first_bloc.dart';
 part 'second_bloc.dart';
+part 'third_bloc.dart';
 
 abstract class Bloc {
   void init();
