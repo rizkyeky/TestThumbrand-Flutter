@@ -5,9 +5,9 @@ class XRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        // return MaterialPageRoute(builder: (_) => TypeSelectionPage());
-      case '/loginadmin':
-        // return MaterialPageRoute(builder: (_) => LogInAdminPage());
+        return MaterialPageRoute(builder: (_) => FirstPage());
+      case '/second':
+        return MaterialPageRoute(builder: (_) => SecondPage());
       case '/loginpemantau':
         // return MaterialPageRoute(builder: (_) => LogInPemantauPage());
       default:
