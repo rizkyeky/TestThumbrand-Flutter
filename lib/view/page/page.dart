@@ -12,6 +12,7 @@ import 'package:test_thumbrand/view/component/component.dart';
 part 'first_page.dart';
 part 'second_page.dart';
 part 'third_page.dart';
+part 'main_page.dart';
 
 abstract class Page<T extends Bloc> extends StatefulWidget {
 
