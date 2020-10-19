@@ -10,10 +10,11 @@ import 'package:test_thumbrand/theme.dart';
 import 'package:test_thumbrand/view/component/component.dart';
 
 part 'first_page.dart';
-
+part 'second_page.dart';
 abstract class Page<T extends Bloc> extends StatefulWidget {
 
-  final T bloc = locator<T>();
+  final T _bloc = locator<T>();
+  T get blc => _bloc;
   
   Page({
     Key key,
@@ -38,7 +39,7 @@ class _PageState<T extends Bloc> extends State<Page<T>> {
   void initState() {
     if (widget.init != null) {
       widget.init();
-      widget.bloc.init();
+      widget.blc.init();
     }
     super.initState();
   }
@@ -47,7 +48,7 @@ class _PageState<T extends Bloc> extends State<Page<T>> {
   void dispose() {
     if (widget.dispose != null) {
       widget.dispose();
-      widget.bloc.dispose();
+      widget.blc.dispose();
     }
     super.dispose();
   }
