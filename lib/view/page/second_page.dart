@@ -38,7 +38,7 @@ class SecondPage extends Page<SecondBloc> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: List.generate(
                 datas.length, (index) => 
-                  MyCard(data: datas[index],)
+                  _MyCard(data: datas[index],)
               )
             )
           ],
@@ -48,11 +48,11 @@ class SecondPage extends Page<SecondBloc> {
   }
 }
 
-class MyCard extends StatelessWidget {
+class _MyCard extends StatelessWidget {
 
   final Map<String, dynamic> data;
 
-  const MyCard({
+  const _MyCard({
     this.data
   });
 
