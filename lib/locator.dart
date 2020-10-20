@@ -11,7 +11,7 @@ Future<void> setupLocator() async {
 
   locator.registerLazySingleton(() => QuoteService());
   locator.registerLazySingleton(() => DummyService());
-  // locator.registerLazySingleton(() => AuthService(), instanceName: 'Service Auth');
+  locator.registerLazySingleton(() => GraphService());
   
   locator.registerFactory(() => FirstBloc());
   locator.registerFactory(() => SecondBloc());
@@ -22,4 +22,5 @@ Future<void> setupLocator() async {
   
   await locator.allReady();
   await locator.get<QuoteService>().init();
+  await locator.get<GraphService>().init();
 }
