@@ -7,16 +7,18 @@
 
 // import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:test_thumbrand/service/service.dart';
 
 // import 'package:test_thumbrand/main.dart';
 // import 'package:test_thumbrand/service/service.dart';
 
 Future<void> main() async {
   TestWidgetsFlutterBinding.ensureInitialized();
-  // QuoteService service = QuoteService();
+  GraphService graphService = GraphService();
+  
+  graphService.init();
 
-  // List ls = await service.parseJson();
-  // for (int i = 0; i < 10; i++) {
-  //   print(ls[i]);
-  // }
+  print(graphService.pie);
+  print(graphService.bar);
+
 }
