@@ -12,6 +12,7 @@ class XTopBar extends AppBar {
     Stream<bool> isLoadingStream  
   }) : super(
     key: key,
+    automaticallyImplyLeading: false,
     backgroundColor: backgroundColor ?? xwhiteColor,
     centerTitle: true,
     elevation: 0,
