@@ -21,21 +21,29 @@ class ThirdPage extends Page<ThirdBloc> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            PieChart(
-              PieChartData(
-                centerSpaceRadius: 0,
-                sectionsSpace: 0,
-                sections: _pieChartData(),
-                borderData: FlBorderData(
-                  show: false,
-                ),
-              )
+            StreamBuilder<Map<String, int>>(
+              initialData: _bloc.getPieFromService(),
+              stream: _bloc.streamPieFromService(),
+              builder: (context, snapshot) => PieChart(
+                  PieChartData(
+                    centerSpaceRadius: 0,
+                    sectionsSpace: 0,
+                    sections: _pieChartData(snapshot.data),
+                    borderData: FlBorderData(
+                      show: false,
+                    ),
+                  )
+                )
             ),
             const SizedBox(height: 24),
-            Center(
-              child: BarChart(
-                _barChartData(),
-              ),
+            StreamBuilder<Map<String, Map<String, int>>>(
+              initialData: _bloc.getBarFromService(),
+              stream: _bloc.streamBarFromService(),
+              builder: (context, snapshot) {
+                return BarChart(
+                  _barChartData(snapshot.data),
+                );
+              }
             )
           ],
         ),
@@ -43,41 +51,36 @@ class ThirdPage extends Page<ThirdBloc> {
     );
   }
 
-  List<PieChartSectionData> _pieChartData() {
-
-    final Map<String, int> pie = _bloc.getPieFromService();
-    
-    final List<Color> colors = List.generate(pie.length, (index) => 
+  List<PieChartSectionData> _pieChartData(Map<String, int> data) {
+  
+    final List<Color> colors = List.generate(data.length, (index) => 
       xmainColor.withOpacity(1 - (index*0.25)));
     
-    return List.generate(pie.length,
+    return List.generate(data.length,
       (i) => PieChartSectionData(
         color: colors[i],
-        value: pie.values.toList()[i].toDouble(),
+        value: data.values.toList()[i].toDouble(),
         radius: (120 - ((i+1)*5)).toDouble(),
-        title: pie.keys.toList()[i],
+        title: data.keys.toList()[i],
       )
     );
   }
 
-  BarChartData _barChartData() {
+  BarChartData _barChartData(Map<String, Map<String, int>> data) {
 
-    final Map<String, Map<String, int>> bar = _bloc.getBarFromService();
-    
     final List<Color> colors = [xmainColor, xmainColor.withOpacity(0.5)];
 
     return BarChartData(
-      backgroundColor: Colors.grey,
       alignment: BarChartAlignment.spaceAround,
-      barGroups: List.generate(bar.length, (index) {
+      barGroups: List.generate(data.length, (index) {
         
-        final Map<String, int> data = bar.values.toList()[index];
+        final Map<String, int> values = data.values.toList()[index];
 
         return BarChartGroupData(
         x: index,
         barRods: [
-            BarChartRodData(y: data['plus'].toDouble(), colors: colors),
-            BarChartRodData(y: data['minus'].toDouble(), colors: colors.reversed.toList())
+            BarChartRodData(y: values['plus'].toDouble(), colors: colors),
+            BarChartRodData(y: values['minus'].toDouble(), colors: colors.reversed.toList())
           ],
         );
       }),
@@ -88,7 +91,7 @@ class ThirdPage extends Page<ThirdBloc> {
           getTextStyles: (value) => blackSubtitle,
           margin: 4,
           getTitles: (double value) => 
-            bar.keys.toList()[value.toInt()].substring(0,3),
+            data.keys.toList()[value.toInt()].substring(0,3),
         ),
         leftTitles: SideTitles(showTitles: false),
       ),
