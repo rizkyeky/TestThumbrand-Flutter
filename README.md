@@ -1,16 +1,16 @@
-# test_thumbrand
+# Test Thumbrand
 
-A new Flutter project.
+A new Flutter App.
 
-## Getting Started
+## Packages
 
-This project is a starting point for a Flutter application.
+- [Animations](https://pub.dev/packages/animations)
+- [Firebase](https://pub.dev/packages/firebase_core)
+- [Get It](https://pub.dev/packages/get_it)
+- [FL Chart](https://pub.dev/packages/fl_chart)
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshot
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Alt](Screenshot_1603256498.png)
+![Alt](Screenshot_1603256504.png)
+![Alt](Screenshot_1603256519.png)
