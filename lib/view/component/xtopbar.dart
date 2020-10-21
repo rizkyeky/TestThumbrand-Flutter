@@ -8,8 +8,8 @@ class XTopBar extends AppBar {
     Widget leading,
     Color backgroundColor,
     TextStyle textStyle,
-    bool isLoading = false,
-    Stream<bool> isLoadingStream  
+    // bool isLoading = false,
+    // Stream<bool> isLoadingStream  
   }) : super(
     key: key,
     automaticallyImplyLeading: false,
@@ -18,6 +18,6 @@ class XTopBar extends AppBar {
     elevation: 0,
     title: Text(textTitle, style: textStyle ?? blackSubtitle),
     leading: leading,
-    bottom: isLoading ? XTopLinearProgressIndicator(stream: isLoadingStream,) : null
+    // bottom: isLoading ? XTopLinearProgressIndicator(stream: isLoadingStream,) : null
   );
 }
