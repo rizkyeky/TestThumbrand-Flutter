@@ -17,4 +17,12 @@ class ThirdBloc implements Bloc {
   Map<String, Map<String, int>> getBarFromService() {
     return _graphService.bar;
   }
+
+  Stream<Map<String, int>> streamPieFromService() {
+    return _graphService.streamPieData();
+  }
+
+  Stream<Map<String, Map<String, int>>> streamBarFromService() {
+    return _graphService.streamBarData();
+  }
 }
