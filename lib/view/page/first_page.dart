@@ -12,6 +12,8 @@ class FirstPage extends Page<FirstBloc> {
     Colors.red, Colors.green, Colors.blue, Colors.grey, Colors.purple
   ];
 
+  final ValueNotifier<bool> _notifierRefresh = ValueNotifier(false);
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<int>(
@@ -26,8 +28,22 @@ class FirstPage extends Page<FirstBloc> {
         body: child, 
         floatingActionButton: FloatingActionButton(
           backgroundColor: xwhiteColor,
-          onPressed: () => _bloc.refersh(),
-          child: const Icon(Icons.refresh, color: xblackColor,),
+          onPressed: () {
+            _bloc.refersh();
+            _notifierRefresh.value = true;
+          },
+          child: ValueListenableBuilder<bool>(
+            valueListenable: _notifierRefresh,
+            builder: (context, value, child) {
+              // print(value);
+              return XRotatedIcon(
+              start: value,
+              duration: 1,
+              icon: child as Icon,  
+            );
+            },
+            child: const Icon(Icons.refresh, color: xblackColor),
+          )
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
