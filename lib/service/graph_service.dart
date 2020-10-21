@@ -36,4 +36,22 @@ class GraphService {
     
     _bar.addAll(data);
   }
+
+  Stream<Map<String, int>> streamPieData() {
+    return _graphCollection.doc('pie').snapshots()
+      .map((doc) => Map<String, int>.from(doc.data()));
+  }
+
+  Stream<Map<String, Map<String, int>>> streamBarData() {
+    return _graphCollection.doc('bar').snapshots()
+      .map((snapshot) {
+        final Map<String, Map<String, int>> data = {};
+
+        snapshot.data().forEach((key, value) {
+          data[key] = Map<String, int>.from(value as Map);
+        });
+
+        return data;
+      });
+  }
 }
