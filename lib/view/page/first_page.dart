@@ -34,14 +34,10 @@ class FirstPage extends Page<FirstBloc> {
           },
           child: ValueListenableBuilder<bool>(
             valueListenable: _notifierRefresh,
-            builder: (context, value, child) {
-              // print(value);
-              return XRotatedIcon(
-              start: value,
+            builder: (context, value, child) => value ? XRotatedIcon(
               duration: 1,
               icon: child as Icon,  
-            );
-            },
+            ) : child,
             child: const Icon(Icons.refresh, color: xblackColor),
           )
         ),
