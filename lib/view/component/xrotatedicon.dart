@@ -4,13 +4,11 @@ class XRotatedIcon extends StatefulWidget {
 
   final Icon icon;
   final int duration;
-  final bool start;
 
   const XRotatedIcon({
     Key key,
     this.icon,
     this.duration,
-    this.start,
   }) : super(key: key);
 
   @override
